@@ -75,5 +75,7 @@ for i in range(40):
     keyboard.send_keys("{TAB 1}")
     k += 1
 """
-
-Start_Automate()
+if os.path.isdir("C:\\Users\\moham") == True:
+    Start_Automate()
+else:
+    messagebox.showerror("Licence","You Dont have valid licence to run this application in this System \n Please Update Your Licence")
