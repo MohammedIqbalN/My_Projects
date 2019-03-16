@@ -39,7 +39,12 @@ def Start_Automate():
         while " " in content:
             content = content.replace(" ","{SPACE}") 
 
-        content = content.replace("\n", " ")        
+        content = content.replace("\n", " ")       
+
+        Specialchar = ['(', ')', '/', '-']
+        for i in Specialchar:
+            content = content.replace(i, "{" + i + "}")
+        
         Contant_Lst = content.split("	")
         
         Contant_Lst = [x for x in Contant_Lst if x]
@@ -47,12 +52,15 @@ def Start_Automate():
         if len(Contant_Lst) != 40:
             messagebox.showerror("Error","Please Check the data entered as the splitted data does not have 40 feilds")
         else:       
-            app.start("C:\\Program Files (x86)\\Orange Business Service\\SmartUtil v1.4\\SmartUtil.exe")
-            app.window()
-            keyboard.send_keys(Contant_Lst[0])
-            keyboard.send_keys("{TAB 1}")
-            keyboard.send_keys(Contant_Lst[1])
-            keyboard.send_keys("{TAB 1}")
+            #app.start("C:\\Program Files (x86)\\Orange Business Service\\SmartUtil v1.4\\SmartUtil.exe")
+            #app.window()
+
+            time.sleep(5)
+            k=0
+            for i in range(40):
+                keyboard.send_keys(Contant_Lst[k])
+                keyboard.send_keys("{TAB 1}")
+                k += 1
 
         Start_Automate()
     else:
