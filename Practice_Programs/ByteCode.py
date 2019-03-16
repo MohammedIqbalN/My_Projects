@@ -1,3 +1,3 @@
 import py_compile
 
-py_compile.compile("pywinautomation_SmartUtil.py")
+py_compile.compile("Arfath_working_Code.py")
