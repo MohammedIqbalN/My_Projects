@@ -1,3 +1,3 @@
 @echo off
-python E:\Projects_Local\Python\Git\My_Projects\Practice_Programs\pywinautomation_SmartUtil.py %*
+python E:\python\GitHubProjects\My_Projects\My_Projects\Practice_Programs\__pycache__\pywinautomation_SmartUtil.cpython-37.pyc %*
 pause
