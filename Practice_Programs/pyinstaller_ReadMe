@@ -1,0 +1,5 @@
+To creat a exe file for a script to run. 
+browse to the location where python scripts are saved and execute the below
+line of code in command Prompt
+
+pyinstaller --onefile <your_script_name>.py
