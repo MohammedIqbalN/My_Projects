@@ -25,37 +25,43 @@ import sys
 #my_text = docx2txt.process("C:\\Users\\moham\\Desktop\\FGBBDATA-9-001 (1).txt")
 
 application_window = tk.Tk()
+application_window.withdraw()
 app = application.Application()
 
-def Start_Automate():    
-    content = simpledialog.askstring("Input", "Enter you Data here",parent=application_window)
+
+def Start_Automate():
+    content = simpledialog.askstring(
+        "Input", "          Please enter the data in the below box          ", parent=application_window)
     if content != None:
-        MultiSpace = ["               ", "              ", "             ", "            ", "           ", "          ", "         ", "        ", "       ", "      ","     ","    ","   ","  "]
+        MultiSpace = [
+            "               ", "              ", "             ", "            ", "           ", "          ",
+            "         ", "        ", "       ", "      ", "     ", "    ", "   ", "  "
+        ]
 
         while "  " in content:
             for i in MultiSpace:
-                content = content.replace(i,"\t")
+                content = content.replace(i, "\t")
 
         while " " in content:
-            content = content.replace(" ","{SPACE}") 
+            content = content.replace(" ", "{SPACE}")
 
-        content = content.replace("\n", " ")   
+        content = content.replace("\n", " ")
 
         Specialchar = ['(', ')', '/', '-']
         for i in Specialchar:
             content = content.replace(i, "{" + i + "}")
-             
+
         Contant_Lst = content.split("	")
-        
+
         Contant_Lst = [x for x in Contant_Lst if x]
 
         if len(Contant_Lst) != 40:
-            messagebox.showerror("Error","Please Check the data entered as the splitted data does not have 40 feilds")
-        else:       
+            messagebox.showerror("Error", "Please Check the data entered as the splitted data does not have 40 feilds")
+        else:
             #app.start("C:\\Users\\Arafat\\Desktop\\FMP_V_3.1.4.exe")
             #app.window()
             time.sleep(5)
-            k=0
+            k = 0
             for i in range(40):
                 keyboard.send_keys(Contant_Lst[k])
                 keyboard.send_keys("{TAB 1}")
@@ -63,11 +69,11 @@ def Start_Automate():
 
         Start_Automate()
     else:
-        messagebox.showinfo("Information","Automation Tool has stopped, Thank You")
-
+        messagebox.showinfo("Information", "Automation Tool has stopped, Thank You")
 
 
 if os.path.isdir("C:\\Users\\Arafat") == True:
     Start_Automate()
 else:
-    messagebox.showerror("Licence","You Dont have valid licence to run this application in this System \n Please Update Your Licence")
+    messagebox.showerror(
+        "Licence", "You Dont have valid licence to run this application in this System \n Please Update Your Licence")
